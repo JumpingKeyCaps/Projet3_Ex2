@@ -12,8 +12,8 @@ import java.util.List;
  * Les tâches générées sont utilisées à des fins de démonstration.
  */
 public class TaskApi {
-    /** la constante qui nous permet de fixer la date d'expiration de la tache par default a 10 jours apres la creation de la tache.
-     *
+    /**
+     * La constante qui nous permet de fixer la date d'expiration de la tache par default a 10 jours apres la creation de la tache.
      */
     final int DEFAULT_DATE_LIMITE = 10;
     /**

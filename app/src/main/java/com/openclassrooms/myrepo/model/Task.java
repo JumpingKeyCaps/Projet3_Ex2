@@ -11,27 +11,27 @@ public class Task {
     private Date dueTime;
 
     /**
-     * Obtient la date d'expiration de la tâche.
+     * Obtient la date limite de la tâche.
      *
-     * @return La date d'expiration de la tâche.
+     * @return La date limite de la tâche.
      */
     public Date getDueTime() {
         return dueTime;
     }
     /**
-     * Modifie la Date d'expiration de la tâche.
+     * Modifie la Date limite de la tâche.
      *
-     * @param dueTime La nouvelle date d'expiration de la tâche.
+     * @param dueTime La nouvelle date limite de la tâche.
      */
     public void setDueTime(Date dueTime) {
         this.dueTime = dueTime;
     }
 
     /**
-     * Constructeur pour créer une nouvelle tâche avec une description et une date d'expiration.
+     * Constructeur pour créer une nouvelle tâche avec une description et une date limite.
      *
      * @param description La description de la tâche.
-     * @param dueTime la date d'expiration de la tache
+     * @param dueTime la date limite de la tache
      */
     public Task(String description, Date dueTime) {
         this.description = description;
