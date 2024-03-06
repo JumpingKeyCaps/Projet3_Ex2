@@ -1,5 +1,6 @@
 package com.openclassrooms.myrepo.model;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -7,14 +8,34 @@ import java.util.Objects;
  */
 public class Task {
     private String description;
+    private Date dueTime;
 
     /**
-     * Constructeur pour créer une nouvelle tâche avec une description.
+     * Obtient la date d'expiration de la tâche.
+     *
+     * @return La date d'expiration de la tâche.
+     */
+    public Date getDueTime() {
+        return dueTime;
+    }
+    /**
+     * Modifie la Date d'expiration de la tâche.
+     *
+     * @param dueTime La nouvelle date d'expiration de la tâche.
+     */
+    public void setDueTime(Date dueTime) {
+        this.dueTime = dueTime;
+    }
+
+    /**
+     * Constructeur pour créer une nouvelle tâche avec une description et une date d'expiration.
      *
      * @param description La description de la tâche.
+     * @param dueTime la date d'expiration de la tache
      */
-    public Task(String description) {
+    public Task(String description, Date dueTime) {
         this.description = description;
+        this.dueTime = dueTime;
     }
 
     /**
@@ -46,7 +67,7 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(description, task.description);
+        return Objects.equals(description, task.description) && Objects.equals(dueTime, task.dueTime);
     }
 
     /**
@@ -56,6 +77,8 @@ public class Task {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(description);
+        return Objects.hash(description, dueTime);
     }
+
+
 }
