@@ -40,7 +40,7 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(getItem(position));
     }
-//
+
     /**
      * ViewHolder pour afficher les éléments de la liste de tâches.
      */
@@ -53,11 +53,11 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
         /**
          * Constructeur du ViewHolder.
          *
-         * @param itemView la View racine du layout inflater utiliser pour representer une ligne du RecyclerView.
+         * @param itemView La View racine du layout inflater utiliser pour représenter une ligne du RecyclerView.
          */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            // on recupere nos widgets via notre View racines passer en parametre du constructeur (itemView) dans laquelle a ete inflater notre layout task_item.xml
+            // On récupère nos widgets via notre View racines passer en paramètre du constructeur (itemView) dans laquelle a été inflater notre layout task_item.xml
             factTextView = itemView.findViewById(R.id.task_description);
             dueTimeTextView = itemView.findViewById(R.id.task_duetime);
             dueTimeProgressIndicator = itemView.findViewById(R.id.task_duetime_progress_horizontal);
@@ -70,17 +70,17 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
          */
         public void bind(Task task) {
             factTextView.setText(task.getDescription());
-            //on formate la date limite via une methode dedier pour l'afficher dans son textView
+            //On formate la date limite via une méthode dédiée pour l'afficher dans son TextView.
             dueTimeTextView.setText(formatDueTimeToShow(task.getDueTime()));
-            //on set la valeur de temps restant de notre ProgressIndicator via la methode de calcule dedier.
+            //On set la valeur de temps restant de notre ProgressIndicator via la méthode de calcul dédier.
             dueTimeProgressIndicator.setProgress(calculateDueTimeProgress(task.getDueTime()));
         }
 
         /**
-         * Formate notre temps limite en jours/mois/annees pour etre directement utiliser par son textview associer.
+         * Formate notre temps limite en jours/mois/annees pour être directement utilisé par son TextView associé.
          *
          * @param taskDueTime La date limite de la tache a formater.
-         * @return une String  representant la date limite dans un format dd/MM/yyyy  preceder d'un text informatif static
+         * @return Une String  représentant la date limite dans un format dd/MM/yyyy  précéder d'un texte informatif statique
          */
         public String formatDueTimeToShow(Date taskDueTime){
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
@@ -91,10 +91,9 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
          * Calcule la valeur de progression (en %) de la barre de progression de la date limite.
          *
          * @param dueTime La date limite de la tâche.
-         * @return La progression actuel en pourcentage.
+         * @return La progression actuelle  en pourcentage.
          */
         private int calculateDueTimeProgress(Date dueTime) {
-
             //La date actuel
             Calendar currentDayCalendar = Calendar.getInstance();
             currentDayCalendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -114,10 +113,7 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
             int daysRemaining = Math.toIntExact((DueTimeCalendar.getTimeInMillis() - currentDayCalendar.getTimeInMillis()) / (24 * 60 * 60 * 1000));
             //on retunr
             return 100 - (daysRemaining * 10);
-
         }
-
-
     }
 
     /**
