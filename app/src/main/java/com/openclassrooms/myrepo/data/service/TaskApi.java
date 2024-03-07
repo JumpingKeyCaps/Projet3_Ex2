@@ -24,10 +24,7 @@ public class TaskApi {
     public List<Task> getTasks() {
         // Simule la récupération des tâches depuis une API
         List<Task> tasks = new ArrayList<>();
-
-
         // Pour chaque task que l'on on genere une date limite via la methode fakeTaskGenerator
-
         //on genere des taches avec des temps limite personaliser
         tasks.add(new Task("Faire les courses pour le dîner",fakeDueTimeTaskGenerator(false,1)));
         tasks.add(new Task("Préparer le rapport pour la réunion",fakeDueTimeTaskGenerator(false,2)));
