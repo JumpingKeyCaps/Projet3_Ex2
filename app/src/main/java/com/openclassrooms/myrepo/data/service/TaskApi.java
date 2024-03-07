@@ -31,13 +31,11 @@ public class TaskApi {
         tasks.add(new Task("Répondre aux e-mails en attente",fakeDueTimeTaskGenerator(false,3)));
         tasks.add(new Task("Faire de l'exercice pendant 30 minutes",fakeDueTimeTaskGenerator(false,5)));
         tasks.add(new Task("Planifier les vacances d'été",fakeDueTimeTaskGenerator(false,8)));
-
         //On crée des taches avec des temps limite par défaut.
         tasks.add(new Task("Rendre le livre à la bibliothèque",fakeDueTimeTaskGenerator(true,null)));
         tasks.add(new Task("Réviser pour l'examen de mathématiques",fakeDueTimeTaskGenerator(true,null)));
         tasks.add(new Task("Appeler le plombier pour la fuite d'eau",fakeDueTimeTaskGenerator(true,null)));
         tasks.add(new Task("Nettoyer le garage",fakeDueTimeTaskGenerator(true,null)));
-
         //On simule une erreur de paramètre en utilisant la méthode.
         tasks.add(new Task("Préparer une liste de courses",fakeDueTimeTaskGenerator(false,null)));
         return tasks;
