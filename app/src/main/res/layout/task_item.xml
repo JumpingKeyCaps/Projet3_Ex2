@@ -40,13 +40,13 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            app:layout_constraintBottom_toTopOf="@+id/task_progress_horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/task_duetime_progress_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Temps limite : 24/08/2024" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/task_progress_horizontal"
+            android:id="@+id/task_duetime_progress_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
