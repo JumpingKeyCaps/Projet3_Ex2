@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Gestionnaire de tâches</string>
+    <string name="date_format_used_template">dd/MM/yyyy</string>
+    <string name="duetime_formated_text">Date limite : %1$s</string>
 </resources>
