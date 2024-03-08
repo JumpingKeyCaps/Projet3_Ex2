@@ -48,7 +48,8 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        final  String DATE_FORMAT_USED_TEMPLATE;
+        private final String DATE_FORMAT_USED_TEMPLATE;
+        private final int ONE_DAY_IN_MILLISECOND = 24 * 60 * 60 * 1000;
         private final TextView factTextView;
         private final TextView dueTimeTextView;
         private final LinearProgressIndicator dueTimeProgressIndicator;
@@ -119,8 +120,8 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
             DueTimeCalendar.set(Calendar.MILLISECOND, 0);
 
             //Calcule de la difference entre la date limite et la date actuel
-            int daysRemaining = Math.toIntExact((DueTimeCalendar.getTimeInMillis() - currentDayCalendar.getTimeInMillis()) / (24 * 60 * 60 * 1000));
-            //on retunr
+            int daysRemaining = Math.toIntExact((DueTimeCalendar.getTimeInMillis() - currentDayCalendar.getTimeInMillis()) / ONE_DAY_IN_MILLISECOND);
+            //on retourne le pourcentage calculer.
             return 100 - (daysRemaining * 10);
         }
     }
