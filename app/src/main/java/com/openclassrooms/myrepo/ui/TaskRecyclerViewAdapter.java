@@ -1,4 +1,6 @@
 package com.openclassrooms.myrepo.ui;
+import static android.provider.Settings.System.getString;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +48,12 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
 
+        final static String DATE_FORMAT_USED_PATTERN = "dd/MM/yyyy";
         private final TextView factTextView;
         private final TextView dueTimeTextView;
         private final LinearProgressIndicator dueTimeProgressIndicator;
+
+
 
         /**
          * Constructeur du ViewHolder.
@@ -82,9 +87,12 @@ public class TaskRecyclerViewAdapter extends ListAdapter<Task, TaskRecyclerViewA
          * @param taskDueTime La date limite de la tache a formater.
          * @return Une String  représentant la date limite dans un format dd/MM/yyyy  précéder d'un texte informatif statique
          */
-        public String formatDueTimeToShow(Date taskDueTime){
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-            return "Date limite : "+dateFormat.format(taskDueTime);
+        private String formatDueTimeToShow(Date taskDueTime){
+            final SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_USED_PATTERN, Locale.getDefault());
+            //on recupere le contexe via l'itemview, pour recuperer notre String resource,
+            // puis on utilise le binding d'argument sur cette derniere pour y inclure notre notre date
+            // (bonne pratique + permet de gerer la régionalisation)
+            return itemView.getContext().getString(R.string.duetime_formated_text,dateFormat.format(taskDueTime));
         }
 
         /**
